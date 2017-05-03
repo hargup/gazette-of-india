@@ -1,9 +1,10 @@
 # Gazette of India
 
 Inspired by [Laws of India](http://lawsofindia.org/) this project aims to
-collect all state and union gazettes of India at one place. Here are some
-links:
+collect all state and union gazettes of India at one place.
 
+
+## Links to Gazettes
 
 * Union http://egazette.nic.in
 
@@ -39,4 +40,8 @@ links:
 * West Bengal https://wb.gov.in/portal/web/guest/circular-and-notifications
 
 
+## News
 
+
+* (Wednesday 03 May 2017) I've started to scrape pdfs on my personal server, you can see the notes [here](notes.md),
+if someone is interested in helping me out send an email to `mail AT hargup DOT in`, I can give you access to the server.

@@ -90,3 +90,28 @@ display to run firefox. I found this (https://en.wikipedia.org/wiki/Xvfb) which
 will run a display in memory without showing anything so that I can close my
 own computer and sleep.
 
+# Monday 15 May 2017 07:15:42 PM IST
+
+Central government website is slow to an extent of being annoying. Sometimes
+even 30 second wait time is not enough which really waits down my iteration
+cycle.
+
+
+# Monday 15 May 2017 09:15:52 PM IST
+
+The script to scrape information from the central government website appears to
+work properly. Now I need to run it on the server. I have install splinter,
+geckodriver and firefox on it again. I should write a installation scrip too!
+BTW get gecko from https://github.com/mozilla/geckodriver/releases
+
+
+# Monday 15 May 2017 10:27:34 PM IST
+
+I've run the script to script to scrape all the metadata (date, subject and
+ministry) for all 2014 gazettes of union government. It is taking a lot of time
+to run on the server, lets see how it turns out, after that I'll run it for
+other years.
+
+Meanwhile running the scrapper for other state governments. For websites which
+can mirrored using wget, I'm mirroring them using wget and will scrape the
+metadata later.

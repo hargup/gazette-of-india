@@ -54,3 +54,39 @@ I should write a bash script which does this for all years. Though this is
 dirty hack; scraping though page will also give use hte metadata without
 extracting it out of the pdf. Also this method might now always work, for
 example 2012 has this url format http://egazette.nic.in/WriteReadData/2012/E_1_2012_186.pdf
+
+# Saturday 13 May 2017 11:23:09 PM IST
+
+I'm starting with scraping union notifications again. `ghost.py` has really bad
+documentation. I has started working on my laptop since I'm now at home with
+an internet without proxy. I'll try selenium, that might work better.
+
+# Sunday 14 May 2017 01:22:38 AM IST
+
+I'm using splinter to automate the process. It is wrapper on selenium and
+appears to have more usable api. I was facing some trouble running those with
+the non latest version of firefox. I had to manually download the latest
+version and installed it using this guide http://libre-software.net/how-to-install-firefox-on-ubuntu-linux-mint/
+
+Now I'm able to programmatically access the page programmatically.
+
+But the table is huge and the links aren't urls. I'll do the work of
+downloading them tomorrow.
+
+# Sunday 14 May 2017 10:40:01 PM IST
+
+Using `x = browser.find_by_xpath("//input[@src='images/pdf_icon.png']")` I'm
+able to get links to all pdfs using this but I also want the metadata. This
+opens the pdf in a new window, I can get the window url using
+`browser.windows[-1].url`, which I can save and download later.
+
+# Monday 15 May 2017 12:06:29 AM IST
+
+Okay, I'm calling it a day. Till now I was able to open the pdf in a new window
+and also get a metadata. The issue is that I need to wait till the pdf opens in
+a new window that for some reason I'm not able to do properly. After this is
+over I need to run the script on my server. Splinter or Selenium needs a
+display to run firefox. I found this (https://en.wikipedia.org/wiki/Xvfb) which
+will run a display in memory without showing anything so that I can close my
+own computer and sleep.
+

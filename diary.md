@@ -115,3 +115,40 @@ other years.
 Meanwhile running the scrapper for other state governments. For websites which
 can mirrored using wget, I'm mirroring them using wget and will scrape the
 metadata later.
+
+# Tuesday 16 May 2017 10:27:21 PM IST
+
+I think I should start building the search tool with whatever pdfs I've been
+scrape till now. I came across `pdftohtml` tool and it soo good! I also came
+across [django-haystack](http://django-haystack.readthedocs.io) and it appears
+to be the right tool for the job.
+
+For the next one or so hour I'll try to follow this haystack tutorial
+https://www.slideshare.net/MarcelChastain/advanced-search-solr-djangohaystack
+
+# Tuesday 16 May 2017 10:49:35 PM IST
+
+Okay, it is an old tutorial, 3 years old using really old version of solr and
+java and is python 3 incompatible, I should find something else.
+
+# Tuesday 16 May 2017 10:52:49 PM IST
+
+I'll try to follow the official tutorial
+http://django-haystack.readthedocs.io/en/v2.6.0/tutorial.html Following it
+requires basic knowledge of django, so I should first take a basic tutorial of
+django.
+
+# Tuesday 16 May 2017 10:59:52 PM IST
+
+I'm starting with tango with django book http://www.tangowithdjango.com I
+remember Himanshu mentioning it once.
+
+# Tuesday 16 May 2017 11:32:45 PM IST
+
+:/ this tutorial also appears to be old with broken links to django
+documentation, but not too old to be useless.
+
+# Wednesday 17 May 2017 12:05:57 AM IST
+
+The tutorial is not bad, I completed the first two chapters and will do the
+rest tomorrow.

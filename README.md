@@ -9,7 +9,7 @@ notification tool on them later.
 |---|---|---|---|---|---|
 | Union  | http://egazette.nic.in | Yes | Partly | No | [union.py](src/union.py) |
 | Andra Pradesh  | http://gazette.ap.gov.in/gt_PublicReport.aspx | Yes| No | No | |
-| Arunachal Pradesh  | http://arunachalpradesh.gov.in/csp_ap_portal/documents_new.html | No | No | No | |
+| Arunachal Pradesh  | http://arunachalpradesh.gov.in/csp_ap_portal/documents_new.html | No | Yes | No | |
 | Assam | | ? | No | No | |
 | Bihar  | http://egazette.bih.nic.in/ | Yes | No | No | |
 | Chattisgarh  | http://cg.nic.in/egazette/ | Yes | No | No | |
@@ -20,7 +20,7 @@ notification tool on them later.
 | Himachal Pradesh  | http://rajpatrahimachal.nic.in/ | Yes | No | No | |
 | Jammu and Kashmir | | ? | No | No | |
 | Jharkhand  | http://jhr2.nic.in/egazette/ | Yes | No | No | |
-| Karnataka  | http://www.gazette.kar.nic.in/ | No | No | No | [karnataka.md](karnataka.md)|
+| Karnataka  | http://www.gazette.kar.nic.in/ | No | Yes | No | [karnataka.md](karnataka.md)|
 | Kerala  | http://www.egazette.kerala.gov.in/ | No | No | No | |
 | Madhya Pradesh  | http://govtpressmp.nic.in/gazette.html | No | No | No | |
 | Maharashtra  | https://egazzete.mahaonline.gov.in/Forms/GazetteSearch.aspx | Yes | No | No | |

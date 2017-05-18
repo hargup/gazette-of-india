@@ -152,3 +152,80 @@ documentation, but not too old to be useless.
 
 The tutorial is not bad, I completed the first two chapters and will do the
 rest tomorrow.
+
+# Wednesday 17 May 2017 11:19:58 PM IST
+
+I've completed basic django tutorial, the "Tango with Django" book was often
+redirecting me to the official tutorial, so I just read the official tutorial
+an skipped the book. The tutorial is in many parts I completed teh first 4, the
+rest talks about tests, looks and feel and re-usability which I'll look into
+later.
+
+# Thursday 18 May 2017 12:11:17 AM IST 
+
+I'm not able to follow and run haystack's tutorial. Some of the instructions
+are not clear. For example at one point we are asked to add the following line to URLConf
+`(r'^search/', include('haystack.urls')),`
+
+but I'm sure where this `include` is coming from. See http://django-haystack.readthedocs.io/en/v2.6.0/tutorial.html#add-the-searchview-to-your-urlconf
+
+Also later the author asks us to run `./manage.py rebuild_index`, but when I do
+so it says
+```
+ Unknown command: 'rebuild_index'
+Type 'manage.py help' for usage
+```
+
+I would rather have a working demo of haystack and tinker with it rather than
+following this tutorial where the instructions don't work.
+
+# Thursday 18 May 2017 12:22:08 AM IST 
+
+Found this demo given at BangPyper's meetup
+https://github.com/jitendraag/books/ and the corresponding instructions
+https://docs.google.com/document/d/1XYsnJJDSiHNCFVe8KLCXpGbGegTZ_QBQnGE_5mky4W0/edit
+
+I'm calling it a day for today. See you tomorrow.
+
+# Thursday 18 May 2017 08:52:22 PM IST 
+
+I'm not sure why but I was getting 404 error when I tried to run by downloading
+tar and just staring it using `bin/solr start` as instructed in starting guide.
+Passing the host address also doesn't help, though installing solr using
+apt-get fixed the thing. See https://askubuntu.com/a/677829/421703
+
+I should come back after I get the MVP and see what was wrong.
+
+# Thursday 18 May 2017 09:01:39 PM IST
+
+I thought lets fix the installation from source issue and I'm getting these
+strange java call stacks which I know nothing about see https://dpaste.de/ujvJ
+
+# Thursday 18 May 2017 09:38:11 PM IST 
+
+There is some issue with the java installation as `java --version` is
+completing. I thought of doing this when I though I should post a question on
+stackoverflow.
+
+# Thursday 18 May 2017 09:44:20 PM IST
+
+[facepalm] I ran `java --version` and it turned out it gives error even if java
+is installed properly. I needed to run `java -version`, a single hyphen, in
+python and many other places it is convention to start long arguments by double
+hyphen. Anyway I've reinstalled java lets see if solr works now.
+
+# Thursday 18 May 2017 09:49:39 PM IST
+
+Okay, solr admin panel opened up! phew.
+
+# Friday 19 May 2017 12:14:15 AM IST 
+
+Okay, I was able to setup a basic search locally, lets try it on remote
+
+# Friday 19 May 2017 12:41:28 AM IST
+
+Okay, things also work on the remote server, as of it only gives the file name
+for the search query. I extracted text of some union gazettes and searched
+"Aadhaar" and the file it showed had the term. It uses Whoosh as backend, I'll
+change it to solr, also I'll try the highlighting feature. The present aim will
+be to create the website for all 2016 and 2017 gazettes by union of India.

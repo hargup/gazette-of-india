@@ -229,3 +229,32 @@ for the search query. I extracted text of some union gazettes and searched
 "Aadhaar" and the file it showed had the term. It uses Whoosh as backend, I'll
 change it to solr, also I'll try the highlighting feature. The present aim will
 be to create the website for all 2016 and 2017 gazettes by union of India.
+
+# Friday 19 May 2017 02:53:42 PM IST
+
+On hindsight, haystack documentation wasn't bad, I could have been more
+careful in the whole process. `include` thing that I was talking about was part
+of django utils, though I should make a PR to clarify that in the docs.
+Okay, it is time to get a deeper understanding of haystack. Today I'll try to
+add two things, 1. the full result and just the name, 2. highlight of the
+relevant part.
+
+# Friday 19 May 2017 11:26:33 PM IST
+
+Slept for the most part of day. Okay, I got both of these things and now I've
+got a fair idea of how to proceede. `django-haystack` is a good library but
+with poor documentation in example they said use `{% highlight result.summary
+with query %}` to highlight the result summary. There are two issue with that,
+first they didn't tell that I had to load the `highlight` template, I got to
+know of that looking at the example templates they have. Second,
+`result.summary` isn't an actual object and `.summary` part needs to replaced
+with whatever thing you want to highlight. They might have thought this is
+obvious but it isn't that much.
+
+# Friday 19 May 2017 11:42:51 PM IST
+
+Now that I've got a fair idea of all the building blocks I can start off with
+making the main site. Though I still need to extract the subject and
+publication date. `pdfinfo` gives a creation date and a modification date,
+though I'm not sure how accurate that might be. I case I find no reliable way
+to find the subject, I'll use the publication date as title.

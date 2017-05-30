@@ -115,3 +115,146 @@ other years.
 Meanwhile running the scrapper for other state governments. For websites which
 can mirrored using wget, I'm mirroring them using wget and will scrape the
 metadata later.
+
+# Tuesday 16 May 2017 10:27:21 PM IST
+
+I think I should start building the search tool with whatever pdfs I've been
+scrape till now. I came across `pdftohtml` tool and it soo good! I also came
+across [django-haystack](http://django-haystack.readthedocs.io) and it appears
+to be the right tool for the job.
+
+For the next one or so hour I'll try to follow this haystack tutorial
+https://www.slideshare.net/MarcelChastain/advanced-search-solr-djangohaystack
+
+# Tuesday 16 May 2017 10:49:35 PM IST
+
+Okay, it is an old tutorial, 3 years old using really old version of solr and
+java and is python 3 incompatible, I should find something else.
+
+# Tuesday 16 May 2017 10:52:49 PM IST
+
+I'll try to follow the official tutorial
+http://django-haystack.readthedocs.io/en/v2.6.0/tutorial.html Following it
+requires basic knowledge of django, so I should first take a basic tutorial of
+django.
+
+# Tuesday 16 May 2017 10:59:52 PM IST
+
+I'm starting with tango with django book http://www.tangowithdjango.com I
+remember Himanshu mentioning it once.
+
+# Tuesday 16 May 2017 11:32:45 PM IST
+
+:/ this tutorial also appears to be old with broken links to django
+documentation, but not too old to be useless.
+
+# Wednesday 17 May 2017 12:05:57 AM IST
+
+The tutorial is not bad, I completed the first two chapters and will do the
+rest tomorrow.
+
+# Wednesday 17 May 2017 11:19:58 PM IST
+
+I've completed basic django tutorial, the "Tango with Django" book was often
+redirecting me to the official tutorial, so I just read the official tutorial
+an skipped the book. The tutorial is in many parts I completed teh first 4, the
+rest talks about tests, looks and feel and re-usability which I'll look into
+later.
+
+# Thursday 18 May 2017 12:11:17 AM IST 
+
+I'm not able to follow and run haystack's tutorial. Some of the instructions
+are not clear. For example at one point we are asked to add the following line to URLConf
+`(r'^search/', include('haystack.urls')),`
+
+but I'm sure where this `include` is coming from. See http://django-haystack.readthedocs.io/en/v2.6.0/tutorial.html#add-the-searchview-to-your-urlconf
+
+Also later the author asks us to run `./manage.py rebuild_index`, but when I do
+so it says
+```
+ Unknown command: 'rebuild_index'
+Type 'manage.py help' for usage
+```
+
+I would rather have a working demo of haystack and tinker with it rather than
+following this tutorial where the instructions don't work.
+
+# Thursday 18 May 2017 12:22:08 AM IST 
+
+Found this demo given at BangPyper's meetup
+https://github.com/jitendraag/books/ and the corresponding instructions
+https://docs.google.com/document/d/1XYsnJJDSiHNCFVe8KLCXpGbGegTZ_QBQnGE_5mky4W0/edit
+
+I'm calling it a day for today. See you tomorrow.
+
+# Thursday 18 May 2017 08:52:22 PM IST 
+
+I'm not sure why but I was getting 404 error when I tried to run by downloading
+tar and just staring it using `bin/solr start` as instructed in starting guide.
+Passing the host address also doesn't help, though installing solr using
+apt-get fixed the thing. See https://askubuntu.com/a/677829/421703
+
+I should come back after I get the MVP and see what was wrong.
+
+# Thursday 18 May 2017 09:01:39 PM IST
+
+I thought lets fix the installation from source issue and I'm getting these
+strange java call stacks which I know nothing about see https://dpaste.de/ujvJ
+
+# Thursday 18 May 2017 09:38:11 PM IST 
+
+There is some issue with the java installation as `java --version` is
+completing. I thought of doing this when I though I should post a question on
+stackoverflow.
+
+# Thursday 18 May 2017 09:44:20 PM IST
+
+[facepalm] I ran `java --version` and it turned out it gives error even if java
+is installed properly. I needed to run `java -version`, a single hyphen, in
+python and many other places it is convention to start long arguments by double
+hyphen. Anyway I've reinstalled java lets see if solr works now.
+
+# Thursday 18 May 2017 09:49:39 PM IST
+
+Okay, solr admin panel opened up! phew.
+
+# Friday 19 May 2017 12:14:15 AM IST 
+
+Okay, I was able to setup a basic search locally, lets try it on remote
+
+# Friday 19 May 2017 12:41:28 AM IST
+
+Okay, things also work on the remote server, as of it only gives the file name
+for the search query. I extracted text of some union gazettes and searched
+"Aadhaar" and the file it showed had the term. It uses Whoosh as backend, I'll
+change it to solr, also I'll try the highlighting feature. The present aim will
+be to create the website for all 2016 and 2017 gazettes by union of India.
+
+# Friday 19 May 2017 02:53:42 PM IST
+
+On hindsight, haystack documentation wasn't bad, I could have been more
+careful in the whole process. `include` thing that I was talking about was part
+of django utils, though I should make a PR to clarify that in the docs.
+Okay, it is time to get a deeper understanding of haystack. Today I'll try to
+add two things, 1. the full result and just the name, 2. highlight of the
+relevant part.
+
+# Friday 19 May 2017 11:26:33 PM IST
+
+Slept for the most part of day. Okay, I got both of these things and now I've
+got a fair idea of how to proceede. `django-haystack` is a good library but
+with poor documentation in example they said use `{% highlight result.summary
+with query %}` to highlight the result summary. There are two issue with that,
+first they didn't tell that I had to load the `highlight` template, I got to
+know of that looking at the example templates they have. Second,
+`result.summary` isn't an actual object and `.summary` part needs to replaced
+with whatever thing you want to highlight. They might have thought this is
+obvious but it isn't that much.
+
+# Friday 19 May 2017 11:42:51 PM IST
+
+Now that I've got a fair idea of all the building blocks I can start off with
+making the main site. Though I still need to extract the subject and
+publication date. `pdfinfo` gives a creation date and a modification date,
+though I'm not sure how accurate that might be. I case I find no reliable way
+to find the subject, I'll use the publication date as title.

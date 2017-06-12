@@ -258,3 +258,29 @@ making the main site. Though I still need to extract the subject and
 publication date. `pdfinfo` gives a creation date and a modification date,
 though I'm not sure how accurate that might be. I case I find no reliable way
 to find the subject, I'll use the publication date as title.
+
+# Friday 26 May 2017 01:47:37 AM IST
+
+I was off from this project from last few days because I went to village with
+nani. I was trying to highlight html generated from `pdftohtml`, but it doesn't
+seem to work quite well. I guess the html is making search difficult, will find
+out.
+
+# Friday 26 May 2017 03:46:31 PM IST
+
+Okay, fixed the highlighting issue. I've also created added a parameter
+`full_doc` in `django-haystack` which will allow one to highlight the whole
+document. I'll make a pull request soon.
+
+BTW I'm finding it hard to decide who to divide up project into apps, so as
+of now I'm going to put everything in a single app, I'll do the refactoring
+later as things will become clearer. Premature abstraction is also a root of
+evil.
+
+# Friday 26 May 2017 04:26:46 PM IST
+
+I was encountering `OperationalError` when I tried to move my code from the
+test app I created by following django tutorial to the new app. This answer
+helped (https://stackoverflow.com/a/37799885) but not sure why. Understating
+django's migration process goes to my technical debt account
+https://docs.djangoproject.com/en/1.11/topics/migrations/
